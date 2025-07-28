@@ -29,6 +29,7 @@ jobs:
           output_location: "src"          # без build — ця сама папка
           skip_app_build: true
           is_static_export: true
+          deployment_action: upload
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
