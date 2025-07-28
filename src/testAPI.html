@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+    }
+
+    input, button, textarea {
+        margin: 10px auto;
+        padding: 10px;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    textarea {
+        height: 200px;
+        resize: none;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>Тест API</h1>
+    <div style="display: flex; flex-direction: column; ">
+        <input type="text" placeholder="введи слово для пошуку" />
+        <button>Отримати дані з словника</button>   
+        <textarea id="textarea1"></textarea>
+    </div>
+
+
+</body>
+<script>
+
+   function getApiData() {
+    let word = document.querySelector('input').value;
+
+    if (!word) {
+        word = 'chicken'; // Default value if input is empty
+    }
+    
+    let apiUrl = `https://linkssqlite.azurewebsites.net/Queries/test3?word=${word}`;
+    let response = fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('textarea1').value = JSON.stringify(data, null, 2);
+        //console.log('API Response:', data);   
+     }) 
+    }
+
+    document.querySelector('button').addEventListener('click', function() {
+      
+        getApiData();
+    }); 
+
+
+</script>
+
+</html>
