@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ШІ та айтішники: Жартівливий погляд</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* Rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 2.5rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        .profession-item {
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            border-radius: 0.75rem; /* Slightly rounded corners for items */
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 0.75rem;
+            background-color: #e2e8f0; /* Light gray background */
+            color: #2d3748; /* Dark text */
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profession-item:hover {
+            transform: translateY(-3px);
+            background-color: #cbd5e0; /* Slightly darker on hover */
+        }
+        .profession-item.active {
+            background-color: #6366f1; /* Purple for active */
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4); /* Shadow for active */
+        }
+        .description-box {
+            background-color: #f7fafc; /* Lighter background for description */
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem; /* Rounded corners */
+            padding: 1.5rem;
+            margin-top: 2rem;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125rem; /* Larger text */
+            color: #4a5568; /* Medium gray text */
+            text-align: left;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-8">ШІ та айтішники: Жартівливий погляд</h1>
+        <p class="text-lg text-gray-700 mb-8">
+            Натисніть на ІТ-спеціальність, щоб дізнатися, як її "замінить" штучний інтелект!
+        </p>
+
+        <div id="professions-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <!-- Professions will be dynamically loaded here -->
+        </div>
+
+        <div id="description-display" class="description-box">
+            <p>Оберіть ІТ-професію зі списку вище.</p>
+        </div>
+    </div>
+
+    <script>
+        // Data for IT professions and their AI replacement descriptions
+        const professionsData = [
+            {
+                name: "Розробник (Frontend)",
+                description: "ШІ-фронтенд розробник згенерує ідеальний UI/UX за долі секунди, без жодних багів у CSS. Він ніколи не забуде про адаптивність і не скаже 'це працює у мене на машині'."
+            },
+            {
+                name: "Розробник (Backend)",
+                description: "ШІ-бек-енд розробник створить масштабовані мікросервіси, які ніколи не падають, з оптимальною базою даних і без жодного рядка legacy-коду. А ще він не потребує Stack Overflow."
+            },
+            {
+                name: "QA Інженер",
+                description: "ШІ-тестувальник знайде всі баги ще до того, як ви напишете код. Він буде проводити тисячі тестів на секунду, не втомлюючись, і ніколи не пропустить регресію. Людські баги? Що це?"
+            },
+            {
+                name: "DevOps Інженер",
+                description: "ШІ-DevOps налаштує CI/CD пайплайни, які ніколи не ламаються, автоматизує все, що тільки можна, і розгорне продакшн без жодного простою. Він навіть сам собі каву зробить."
+            },
+            {
+                name: "Менеджер Проєктів",
+                description: "ШІ-PM буде ідеально планувати проєкти, керувати ресурсами, передбачати ризики і ніколи не пропустить дедлайн. Він завжди знатиме, хто що робить, і не буде влаштовувати зайвих мітингів."
+            },
+            {
+                name: "Data Scientist",
+                description: "ШІ-дата-сайєнтист побудує моделі, які передбачають майбутнє з 99.9% точністю, знайде кореляції, про які ви й не здогадувались, і ніколи не скаже 'потрібно більше даних'."
+            },
+            {
+                name: "Кібербезпека",
+                description: "ШІ-спеціаліст з кібербезпеки виявить і нейтралізує всі загрози ще до того, як вони виникнуть. Він буде захищати ваші дані 24/7, не потребуючи відпустки чи підвищення зарплати за понаднормову роботу."
+            },
+            {
+                name: "UI/UX Дизайнер",
+                description: "ШІ-дизайнер створить інтерфейси, які не просто красиві, а й інтуїтивно зрозумілі для кожного користувача, враховуючи всі психологічні аспекти. І так, він ніколи не скаже 'давайте зробимо це ще раз, але в іншому стилі'."
+            },
+            {
+                name: "Технічна Підтримка",
+                description: "ШІ-підтримка вирішить будь-яку проблему миттєво, 24/7, без роздратування і з ідеальною ввічливістю. Він ніколи не попросить вас перезавантажити роутер."
+            }
+        ];
+
+        const professionsListDiv = document.getElementById('professions-list');
+        const descriptionDisplayDiv = document.getElementById('description-display');
+
+        // Function to display description
+        function displayDescription(description) {
+            descriptionDisplayDiv.innerHTML = `<p>${description}</p>`;
+        }
+
+        // Function to render professions
+        function renderProfessions() {
+            professionsData.forEach(profession => {
+                const professionItem = document.createElement('div');
+                professionItem.classList.add('profession-item', 'shadow-md');
+                professionItem.textContent = profession.name;
+                professionItem.setAttribute('data-description', profession.description);
+
+                professionItem.addEventListener('click', () => {
+                    // Remove 'active' class from all items
+                    document.querySelectorAll('.profession-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Add 'active' class to the clicked item
+                    professionItem.classList.add('active');
+
+                    // Display the corresponding description
+                    displayDescription(profession.description);
+                });
+                professionsListDiv.appendChild(professionItem);
+            });
+        }
+
+        // Initial render when the page loads
+        document.addEventListener('DOMContentLoaded', renderProfessions);
+    </script>
+</body>
+</html>
