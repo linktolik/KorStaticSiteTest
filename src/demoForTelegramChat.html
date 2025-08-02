@@ -11,21 +11,42 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: flex-start; /* Align content to the top */
             min-height: 100vh;
-            padding: 20px;
+            padding: 1rem; /* Smaller padding for mobile */
             box-sizing: border-box;
+            overflow-y: auto; /* Allow scrolling */
         }
+        /* Revert to original centering for larger screens */
+        @media (min-width: 768px) { /* md breakpoint */
+            body {
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+        }
+
         .container {
             background-color: #ffffff;
             border-radius: 1.5rem; /* Rounded corners */
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
-            padding: 2.5rem;
+            padding: 1.5rem; /* Smaller padding for mobile */
             max-width: 800px;
             width: 100%;
             text-align: center;
+            margin-top: 1rem; /* Add some top margin for mobile */
+            margin-bottom: 1rem; /* Add some bottom margin for mobile */
         }
+        /* Revert to original padding for larger screens */
+        @media (min-width: 768px) { /* md breakpoint */
+            .container {
+                padding: 2.5rem;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
         .profession-item {
             cursor: pointer;
             transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -48,20 +69,57 @@
             color: #ffffff;
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4); /* Shadow for active */
         }
-        .description-box {
-            background-color: #f7fafc; /* Lighter background for description */
-            border: 1px solid #e2e8f0;
-            border-radius: 1rem; /* Rounded corners */
-            padding: 1.5rem;
-            margin-top: 2rem;
-            min-height: 100px;
+
+        /* Modal specific styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.125rem; /* Larger text */
-            color: #4a5568; /* Medium gray text */
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 90%; /* Responsive width */
+            width: 500px; /* Max width for larger screens */
+            position: relative;
             text-align: left;
+            font-size: 1.125rem;
+            color: #4a5568;
             line-height: 1.6;
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -70,16 +128,21 @@
         <h1 class="text-4xl font-extrabold text-gray-900 mb-8">кажеш не бери близько до серця? )</h1>
         <h1 class="text-4xl font-extrabold text-gray-900 mb-8">ШІ та айтішники: Жартівливий погляд</h1>
         <small>а може й не дуже жартівливий і нам таки п..да ) </small>
-        <p class="text-lg text-gray-700 mb-8">
+        <p class="text-base md:text-lg text-gray-700 mb-8">
             Натисніть на ІТ-спеціальність, щоб дізнатися, як її "замінить" штучний інтелект!
         </p>
 
         <div id="professions-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             <!-- Professions will be dynamically loaded here -->
         </div>
+    </div>
 
-        <div id="description-display" class="description-box">
-            <p>Оберіть ІТ-професію зі списку вище.</p>
+    <!-- The Modal -->
+    <div id="descriptionModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-gray-900"></h2>
+            <p id="modalDescription"></p>
         </div>
     </div>
 
@@ -125,12 +188,32 @@
         ];
 
         const professionsListDiv = document.getElementById('professions-list');
-        const descriptionDisplayDiv = document.getElementById('description-display');
+        const descriptionModal = document.getElementById('descriptionModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalCloseBtn = document.querySelector('.modal-close');
 
-        // Function to display description
-        function displayDescription(description) {
-            descriptionDisplayDiv.innerHTML = `<p>${description}</p>`;
+        // Function to display description in modal
+        function displayDescriptionInModal(title, description) {
+            modalTitle.textContent = title;
+            modalDescription.innerHTML = `<p>${description}</p>`;
+            descriptionModal.classList.remove('hidden'); // Show the modal
         }
+
+        // Function to close the modal
+        function closeModal() {
+            descriptionModal.classList.add('hidden'); // Hide the modal
+        }
+
+        // Event listener for closing the modal via the close button
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        // Event listener for closing the modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target == descriptionModal) {
+                closeModal();
+            }
+        });
 
         // Function to render professions
         function renderProfessions() {
@@ -149,8 +232,8 @@
                     // Add 'active' class to the clicked item
                     professionItem.classList.add('active');
 
-                    // Display the corresponding description
-                    displayDescription(profession.description);
+                    // Display the corresponding description in a modal
+                    displayDescriptionInModal(profession.name, profession.description);
                 });
                 professionsListDiv.appendChild(professionItem);
             });
