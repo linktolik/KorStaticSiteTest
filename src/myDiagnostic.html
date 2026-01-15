@@ -76,6 +76,8 @@
         <!-- Буде заповнено через JS -->
     </datalist>
 
+    
+
     </fieldset>
 
        
@@ -285,15 +287,31 @@ function sortEmotions(userP, userE, userC) {
   
 }
 
-document.getElementById('emotion-search').addEventListener('input', updateEmotionList);
-document.getElementById('emotion-search').addEventListener('click', updateEmotionList);
-//document.getElementById('emotion-search').addEventListener('touchstart', updateEmotionList);
+// Заміна datalist і input на таблицю
+const tableContainer = document.createElement('div');
+tableContainer.id = 'emotion-table-container';
+const table = document.createElement('table');
+const tableHeader = document.createElement('thead');
+const tableBody = document.createElement('tbody');
 
-// document.getElementById('pleasure-slider').addEventListener('input', updateEmotionList);
-// document.getElementById('energy-slider').addEventListener('input', updateEmotionList);
-// document.getElementById('control-slider').addEventListener('input', updateEmotionList);
+// Додавання заголовків таблиці
+const headerRow = document.createElement('tr');
+['Емоція', 'Іконка', 'P', 'E', 'C', 'відстань'].forEach(headerText => {
+    const th = document.createElement('th');
+    th.textContent = headerText;
+    headerRow.appendChild(th);
+});
+tableHeader.appendChild(headerRow);
+table.appendChild(tableHeader);
+table.appendChild(tableBody);
+tableContainer.appendChild(table);
+
+document.getElementById('emotion-search').replaceWith(tableContainer);
 
 function updateEmotionList() {
+
+    console.log("updateEmotionList");
+    
     const userP = parseInt(document.getElementById('pleasure-slider').value);
     const userE = parseInt(document.getElementById('energy-slider').value);
     const userC = parseInt(document.getElementById('control-slider').value);
@@ -301,16 +319,47 @@ function updateEmotionList() {
     sortEmotions(userP, userE, userC);
 
     // Очищення попередніх варіантів
-    datalist.innerHTML = '';
+    tableBody.innerHTML = '';
 
-    // Додавання відсортованих емоцій до datalist
+    // Додавання відсортованих емоцій до таблиці
     emotionDatabase.forEach(emo => {
-        const option = document.createElement('option');
-        option.value = emo.name;
-        option.textContent = `${emo.icon} ${emo.name} - ${emo.distance}`;
-        datalist.appendChild(option);
+        const row = document.createElement('tr');
+
+        const nameCell = document.createElement('td');
+        nameCell.textContent = emo.name;
+        row.appendChild(nameCell);
+
+        const iconCell = document.createElement('td');
+        iconCell.textContent = emo.icon;
+        row.appendChild(iconCell);
+
+        const distancePCell = document.createElement('td');
+        distancePCell.textContent = `${emo.p} (${emo.p - userP})`;
+        row.appendChild(distancePCell);
+
+        const distanceECell = document.createElement('td');
+        distanceECell.textContent = `${emo.e} (${emo.e - userE})`;
+        row.appendChild(distanceECell);
+
+        const distanceCCell = document.createElement('td');
+        distanceCCell.textContent = `${emo.c} (${emo.c - userC})`;
+        row.appendChild(distanceCCell);
+
+        const totalDistanceCell = document.createElement('td');
+        totalDistanceCell.textContent = emo.distance.toFixed(2);
+        row.appendChild(totalDistanceCell);
+
+        tableBody.appendChild(row);
     });
 }
+
+// document.getElementById('emotion-search').addEventListener('input', updateEmotionList);
+// document.getElementById('emotion-search').addEventListener('click', updateEmotionList);
+//document.getElementById('emotion-search').addEventListener('touchstart', updateEmotionList);
+
+document.getElementById('pleasure-slider').addEventListener('input', updateEmotionList);
+document.getElementById('energy-slider').addEventListener('input', updateEmotionList);
+document.getElementById('control-slider').addEventListener('input', updateEmotionList);
 
 </script>
 </body>
