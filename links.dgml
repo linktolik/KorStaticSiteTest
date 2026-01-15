@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Database" Label="users4.db" Category="Database" Group="Expanded" />
+    <Node Id="AspNetRoleClaims" Label="AspNetRoleClaims" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetRoleClaims_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetRoleClaims_RoleId" Label="RoleId" Category="Field Foreign" Description="bigint" />
+    <Node Id="AspNetRoleClaims_ClaimType" Label="ClaimType" Category="Field Optional" Description="text" />
+    <Node Id="AspNetRoleClaims_ClaimValue" Label="ClaimValue" Category="Field Optional" Description="text" />
+    <Node Id="AspNetRoles" Label="AspNetRoles" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetRoles_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetRoles_Name" Label="Name" Category="Field Optional" Description="text" />
+    <Node Id="AspNetRoles_NormalizedName" Label="NormalizedName" Category="Field Optional" Description="text" />
+    <Node Id="AspNetRoles_ConcurrencyStamp" Label="ConcurrencyStamp" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUserClaims" Label="AspNetUserClaims" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetUserClaims_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetUserClaims_UserId" Label="UserId" Category="Field Foreign" Description="bigint" />
+    <Node Id="AspNetUserClaims_ClaimType" Label="ClaimType" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUserClaims_ClaimValue" Label="ClaimValue" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUserLogins" Label="AspNetUserLogins" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetUserLogins_LoginProvider" Label="LoginProvider" Category="Field Primary" Description="text" />
+    <Node Id="AspNetUserLogins_ProviderKey" Label="ProviderKey" Category="Field Primary" Description="text" />
+    <Node Id="AspNetUserLogins_ProviderDisplayName" Label="ProviderDisplayName" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUserLogins_UserId" Label="UserId" Category="Field Foreign" Description="bigint" />
+    <Node Id="AspNetUserRoles" Label="AspNetUserRoles" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetUserRoles_UserId" Label="UserId" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetUserRoles_RoleId" Label="RoleId" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetUsers" Label="AspNetUsers" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetUsers_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetUsers_FirstName" Label="FirstName" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_LastName" Label="LastName" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_SelectedHubId" Label="SelectedHubId" Category="Field Optional" Description="bigint" />
+    <Node Id="AspNetUsers_UserName" Label="UserName" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_NormalizedUserName" Label="NormalizedUserName" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_Email" Label="Email" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_NormalizedEmail" Label="NormalizedEmail" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_EmailConfirmed" Label="EmailConfirmed" Category="Field" Description="bigint" />
+    <Node Id="AspNetUsers_PasswordHash" Label="PasswordHash" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_SecurityStamp" Label="SecurityStamp" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_ConcurrencyStamp" Label="ConcurrencyStamp" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_PhoneNumber" Label="PhoneNumber" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_PhoneNumberConfirmed" Label="PhoneNumberConfirmed" Category="Field" Description="bigint" />
+    <Node Id="AspNetUsers_TwoFactorEnabled" Label="TwoFactorEnabled" Category="Field" Description="bigint" />
+    <Node Id="AspNetUsers_LockoutEnd" Label="LockoutEnd" Category="Field Optional" Description="text" />
+    <Node Id="AspNetUsers_LockoutEnabled" Label="LockoutEnabled" Category="Field" Description="bigint" />
+    <Node Id="AspNetUsers_AccessFailedCount" Label="AccessFailedCount" Category="Field" Description="bigint" />
+    <Node Id="AspNetUserTokens" Label="AspNetUserTokens" Category="Table" Group="Collapsed" />
+    <Node Id="AspNetUserTokens_UserId" Label="UserId" Category="Field Primary" Description="bigint" />
+    <Node Id="AspNetUserTokens_LoginProvider" Label="LoginProvider" Category="Field Primary" Description="text" />
+    <Node Id="AspNetUserTokens_Name" Label="Name" Category="Field Primary" Description="text" />
+    <Node Id="AspNetUserTokens_Value" Label="Value" Category="Field Optional" Description="text" />
+    <Node Id="ContentSources" Label="ContentSources" Category="Table" Group="Collapsed" />
+    <Node Id="ContentSources_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="ContentSources_Type" Label="Type" Category="Field" Description="bigint" />
+    <Node Id="DatabaseSqlScriptSources" Label="DatabaseSqlScriptSources" Category="Table" Group="Collapsed" />
+    <Node Id="DatabaseSqlScriptSources_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="DatabaseSqlScriptSources_Script" Label="Script" Category="Field" Description="text" />
+    <Node Id="DatabaseTextContents" Label="DatabaseTextContents" Category="Table" Group="Collapsed" />
+    <Node Id="DatabaseTextContents_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="DatabaseTextContents_Content" Label="Content" Category="Field" Description="text" />
+    <Node Id="DatabaseTextContents_Type" Label="Type" Category="Field Optional" Description="bigint" />
+    <Node Id="Files" Label="Files" Category="Table" Group="Collapsed" />
+    <Node Id="Files_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Files_FilePath" Label="FilePath" Category="Field" Description="text" />
+    <Node Id="Files_MimeType" Label="MimeType" Category="Field" Description="text" />
+    <Node Id="Files_FileSize" Label="FileSize" Category="Field" Description="bigint" />
+    <Node Id="FileSystemSqlScriptSources" Label="FileSystemSqlScriptSources" Category="Table" Group="Collapsed" />
+    <Node Id="FileSystemSqlScriptSources_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="FileSystemSqlScriptSources_FilePath" Label="FilePath" Category="Field" Description="text" />
+    <Node Id="FileSystemTextContents" Label="FileSystemTextContents" Category="Table" Group="Collapsed" />
+    <Node Id="FileSystemTextContents_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="FileSystemTextContents_FilePath" Label="FilePath" Category="Field" Description="text" />
+    <Node Id="Hubs" Label="Hubs" Category="Table" Group="Collapsed" />
+    <Node Id="Hubs_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Hubs_StartPage" Label="StartPage" Category="Field Optional" Description="text" />
+    <Node Id="Hubs_IconUrl" Label="IconUrl" Category="Field Optional" Description="text" />
+    <Node Id="Icons" Label="Icons" Category="Table" Group="Collapsed" />
+    <Node Id="Icons_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Icons_Name" Label="Name" Category="Field" Description="text" />
+    <Node Id="Icons_SvgContent" Label="SvgContent" Category="Field" Description="text" />
+    <Node Id="Icons_IsDefault" Label="IsDefault" Category="Field" Description="bigint" />
+    <Node Id="Icons_ForLinkType" Label="ForLinkType" Category="Field Optional" Description="bigint" />
+    <Node Id="Links" Label="Links" Category="Table" Group="Collapsed" />
+    <Node Id="Links_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Links_Name" Label="Name" Category="Field" Description="text" />
+    <Node Id="Links_Alias" Label="Alias" Category="Field" Description="text" />
+    <Node Id="Links_Description" Label="Description" Category="Field" Description="text" />
+    <Node Id="Links_ParentId" Label="ParentId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Links_IconId" Label="IconId" Category="Field Foreign" Description="bigint" />
+    <Node Id="RolePermissions" Label="RolePermissions" Category="Table" Group="Collapsed" />
+    <Node Id="RolePermissions_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="RolePermissions_RoleId" Label="RoleId" Category="Field Foreign" Description="bigint" />
+    <Node Id="RolePermissions_LinkId" Label="LinkId" Category="Field Foreign" Description="bigint" />
+    <Node Id="RolePermissions_Permission" Label="Permission" Category="Field" Description="bigint" />
+    <Node Id="Sources" Label="Sources" Category="Table" Group="Collapsed" />
+    <Node Id="Sources_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Sources_Name" Label="Name" Category="Field" Description="text" />
+    <Node Id="Sources_Value" Label="Value" Category="Field" Description="text" />
+    <Node Id="Sources_ProviderName" Label="ProviderName" Category="Field" Description="text" />
+    <Node Id="SqlApis" Label="SqlApis" Category="Table" Group="Collapsed" />
+    <Node Id="SqlApis_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="SqlApis_SourceId" Label="SourceId" Category="Field Foreign" Description="bigint" />
+    <Node Id="SqlApis_SqlScriptSourceId" Label="SqlScriptSourceId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Texts" Label="Texts" Category="Table" Group="Collapsed" />
+    <Node Id="Texts_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Texts_TextSourceId" Label="TextSourceId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Texts_Type" Label="Type" Category="Field" Description="bigint" />
+    <Node Id="Urls" Label="Urls" Category="Table" Group="Collapsed" />
+    <Node Id="Urls_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Urls_Path" Label="Path" Category="Field" Description="text" />
+    <Node Id="Urls_Target" Label="Target" Category="Field" Description="text" />
+    <Node Id="UserPermissions" Label="UserPermissions" Category="Table" Group="Collapsed" />
+    <Node Id="UserPermissions_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="UserPermissions_UserId" Label="UserId" Category="Field Foreign" Description="bigint" />
+    <Node Id="UserPermissions_LinkId" Label="LinkId" Category="Field Foreign" Description="bigint" />
+    <Node Id="UserPermissions_Permission" Label="Permission" Category="Field" Description="bigint" />
+  </Nodes>
+  <Links>
+    <Link Source="Database" Target="AspNetRoleClaims" Category="Contains" />
+    <Link Source="AspNetRoleClaims" Target="AspNetRoleClaims_Id" Category="Contains" />
+    <Link Source="AspNetRoleClaims" Target="AspNetRoleClaims_RoleId" Category="Contains" />
+    <Link Source="AspNetRoleClaims" Target="AspNetRoleClaims_ClaimType" Category="Contains" />
+    <Link Source="AspNetRoleClaims" Target="AspNetRoleClaims_ClaimValue" Category="Contains" />
+    <Link Source="AspNetRoleClaims_RoleId" Target="AspNetRoles_Id" Label="FK_AspNetRoleClaims_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="AspNetRoles" Category="Contains" />
+    <Link Source="AspNetRoles" Target="AspNetRoles_Id" Category="Contains" />
+    <Link Source="AspNetRoles" Target="AspNetRoles_Name" Category="Contains" />
+    <Link Source="AspNetRoles" Target="AspNetRoles_NormalizedName" Category="Contains" />
+    <Link Source="AspNetRoles" Target="AspNetRoles_ConcurrencyStamp" Category="Contains" />
+    <Link Source="Database" Target="AspNetUserClaims" Category="Contains" />
+    <Link Source="AspNetUserClaims" Target="AspNetUserClaims_Id" Category="Contains" />
+    <Link Source="AspNetUserClaims" Target="AspNetUserClaims_UserId" Category="Contains" />
+    <Link Source="AspNetUserClaims" Target="AspNetUserClaims_ClaimType" Category="Contains" />
+    <Link Source="AspNetUserClaims" Target="AspNetUserClaims_ClaimValue" Category="Contains" />
+    <Link Source="AspNetUserClaims_UserId" Target="AspNetUsers_Id" Label="FK_AspNetUserClaims_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="AspNetUserLogins" Category="Contains" />
+    <Link Source="AspNetUserLogins" Target="AspNetUserLogins_LoginProvider" Category="Contains" />
+    <Link Source="AspNetUserLogins" Target="AspNetUserLogins_ProviderKey" Category="Contains" />
+    <Link Source="AspNetUserLogins" Target="AspNetUserLogins_ProviderDisplayName" Category="Contains" />
+    <Link Source="AspNetUserLogins" Target="AspNetUserLogins_UserId" Category="Contains" />
+    <Link Source="AspNetUserLogins_UserId" Target="AspNetUsers_Id" Label="FK_AspNetUserLogins_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="AspNetUserRoles" Category="Contains" />
+    <Link Source="AspNetUserRoles" Target="AspNetUserRoles_UserId" Category="Contains" />
+    <Link Source="AspNetUserRoles" Target="AspNetUserRoles_RoleId" Category="Contains" />
+    <Link Source="AspNetUserRoles_UserId" Target="AspNetUsers_Id" Label="FK_AspNetUserRoles_0_0" Category="Foreign Key" />
+    <Link Source="AspNetUserRoles_RoleId" Target="AspNetRoles_Id" Label="FK_AspNetUserRoles_1_0" Category="Foreign Key" />
+    <Link Source="Database" Target="AspNetUsers" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_Id" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_FirstName" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_LastName" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_SelectedHubId" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_UserName" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_NormalizedUserName" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_Email" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_NormalizedEmail" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_EmailConfirmed" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_PasswordHash" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_SecurityStamp" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_ConcurrencyStamp" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_PhoneNumber" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_PhoneNumberConfirmed" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_TwoFactorEnabled" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_LockoutEnd" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_LockoutEnabled" Category="Contains" />
+    <Link Source="AspNetUsers" Target="AspNetUsers_AccessFailedCount" Category="Contains" />
+    <Link Source="Database" Target="AspNetUserTokens" Category="Contains" />
+    <Link Source="AspNetUserTokens" Target="AspNetUserTokens_UserId" Category="Contains" />
+    <Link Source="AspNetUserTokens" Target="AspNetUserTokens_LoginProvider" Category="Contains" />
+    <Link Source="AspNetUserTokens" Target="AspNetUserTokens_Name" Category="Contains" />
+    <Link Source="AspNetUserTokens" Target="AspNetUserTokens_Value" Category="Contains" />
+    <Link Source="AspNetUserTokens_UserId" Target="AspNetUsers_Id" Label="FK_AspNetUserTokens_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="ContentSources" Category="Contains" />
+    <Link Source="ContentSources" Target="ContentSources_Id" Category="Contains" />
+    <Link Source="ContentSources" Target="ContentSources_Type" Category="Contains" />
+    <Link Source="Database" Target="DatabaseSqlScriptSources" Category="Contains" />
+    <Link Source="DatabaseSqlScriptSources" Target="DatabaseSqlScriptSources_Id" Category="Contains" />
+    <Link Source="DatabaseSqlScriptSources" Target="DatabaseSqlScriptSources_Script" Category="Contains" />
+    <Link Source="DatabaseSqlScriptSources_Id" Target="ContentSources_Id" Label="FK_DatabaseSqlScriptSources_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="DatabaseTextContents" Category="Contains" />
+    <Link Source="DatabaseTextContents" Target="DatabaseTextContents_Id" Category="Contains" />
+    <Link Source="DatabaseTextContents" Target="DatabaseTextContents_Content" Category="Contains" />
+    <Link Source="DatabaseTextContents" Target="DatabaseTextContents_Type" Category="Contains" />
+    <Link Source="DatabaseTextContents_Id" Target="ContentSources_Id" Label="FK_DatabaseTextContents_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Files" Category="Contains" />
+    <Link Source="Files" Target="Files_Id" Category="Contains" />
+    <Link Source="Files" Target="Files_FilePath" Category="Contains" />
+    <Link Source="Files" Target="Files_MimeType" Category="Contains" />
+    <Link Source="Files" Target="Files_FileSize" Category="Contains" />
+    <Link Source="Files_Id" Target="Links_Id" Label="FK_Files_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="FileSystemSqlScriptSources" Category="Contains" />
+    <Link Source="FileSystemSqlScriptSources" Target="FileSystemSqlScriptSources_Id" Category="Contains" />
+    <Link Source="FileSystemSqlScriptSources" Target="FileSystemSqlScriptSources_FilePath" Category="Contains" />
+    <Link Source="FileSystemSqlScriptSources_Id" Target="ContentSources_Id" Label="FK_FileSystemSqlScriptSources_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="FileSystemTextContents" Category="Contains" />
+    <Link Source="FileSystemTextContents" Target="FileSystemTextContents_Id" Category="Contains" />
+    <Link Source="FileSystemTextContents" Target="FileSystemTextContents_FilePath" Category="Contains" />
+    <Link Source="FileSystemTextContents_Id" Target="ContentSources_Id" Label="FK_FileSystemTextContents_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Hubs" Category="Contains" />
+    <Link Source="Hubs" Target="Hubs_Id" Category="Contains" />
+    <Link Source="Hubs" Target="Hubs_StartPage" Category="Contains" />
+    <Link Source="Hubs" Target="Hubs_IconUrl" Category="Contains" />
+    <Link Source="Hubs_Id" Target="Links_Id" Label="FK_Hubs_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Icons" Category="Contains" />
+    <Link Source="Icons" Target="Icons_Id" Category="Contains" />
+    <Link Source="Icons" Target="Icons_Name" Category="Contains" />
+    <Link Source="Icons" Target="Icons_SvgContent" Category="Contains" />
+    <Link Source="Icons" Target="Icons_IsDefault" Category="Contains" />
+    <Link Source="Icons" Target="Icons_ForLinkType" Category="Contains" />
+    <Link Source="Database" Target="Links" Category="Contains" />
+    <Link Source="Links" Target="Links_Id" Category="Contains" />
+    <Link Source="Links" Target="Links_Name" Category="Contains" />
+    <Link Source="Links" Target="Links_Alias" Category="Contains" />
+    <Link Source="Links" Target="Links_Description" Category="Contains" />
+    <Link Source="Links" Target="Links_ParentId" Category="Contains" />
+    <Link Source="Links" Target="Links_IconId" Category="Contains" />
+    <Link Source="Links_ParentId" Target="Links_Id" Label="FK_Links_0_0" Category="Foreign Key" />
+    <Link Source="Links_IconId" Target="Icons_Id" Label="FK_Links_1_0" Category="Foreign Key" />
+    <Link Source="Database" Target="RolePermissions" Category="Contains" />
+    <Link Source="RolePermissions" Target="RolePermissions_Id" Category="Contains" />
+    <Link Source="RolePermissions" Target="RolePermissions_RoleId" Category="Contains" />
+    <Link Source="RolePermissions" Target="RolePermissions_LinkId" Category="Contains" />
+    <Link Source="RolePermissions" Target="RolePermissions_Permission" Category="Contains" />
+    <Link Source="RolePermissions_LinkId" Target="Links_Id" Label="FK_RolePermissions_0_0" Category="Foreign Key" />
+    <Link Source="RolePermissions_RoleId" Target="AspNetRoles_Id" Label="FK_RolePermissions_1_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Sources" Category="Contains" />
+    <Link Source="Sources" Target="Sources_Id" Category="Contains" />
+    <Link Source="Sources" Target="Sources_Name" Category="Contains" />
+    <Link Source="Sources" Target="Sources_Value" Category="Contains" />
+    <Link Source="Sources" Target="Sources_ProviderName" Category="Contains" />
+    <Link Source="Database" Target="SqlApis" Category="Contains" />
+    <Link Source="SqlApis" Target="SqlApis_Id" Category="Contains" />
+    <Link Source="SqlApis" Target="SqlApis_SourceId" Category="Contains" />
+    <Link Source="SqlApis" Target="SqlApis_SqlScriptSourceId" Category="Contains" />
+    <Link Source="SqlApis_SourceId" Target="Sources_Id" Label="FK_SqlApis_0_0" Category="Foreign Key" />
+    <Link Source="SqlApis_Id" Target="Links_Id" Label="FK_SqlApis_1_0" Category="Foreign Key" />
+    <Link Source="SqlApis_SqlScriptSourceId" Target="ContentSources_Id" Label="FK_SqlApis_2_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Texts" Category="Contains" />
+    <Link Source="Texts" Target="Texts_Id" Category="Contains" />
+    <Link Source="Texts" Target="Texts_TextSourceId" Category="Contains" />
+    <Link Source="Texts" Target="Texts_Type" Category="Contains" />
+    <Link Source="Texts_Id" Target="Links_Id" Label="FK_Texts_0_0" Category="Foreign Key" />
+    <Link Source="Texts_TextSourceId" Target="ContentSources_Id" Label="FK_Texts_1_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Urls" Category="Contains" />
+    <Link Source="Urls" Target="Urls_Id" Category="Contains" />
+    <Link Source="Urls" Target="Urls_Path" Category="Contains" />
+    <Link Source="Urls" Target="Urls_Target" Category="Contains" />
+    <Link Source="Urls_Id" Target="Links_Id" Label="FK_Urls_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="UserPermissions" Category="Contains" />
+    <Link Source="UserPermissions" Target="UserPermissions_Id" Category="Contains" />
+    <Link Source="UserPermissions" Target="UserPermissions_UserId" Category="Contains" />
+    <Link Source="UserPermissions" Target="UserPermissions_LinkId" Category="Contains" />
+    <Link Source="UserPermissions" Target="UserPermissions_Permission" Category="Contains" />
+    <Link Source="UserPermissions_LinkId" Target="Links_Id" Label="FK_UserPermissions_0_0" Category="Foreign Key" />
+    <Link Source="UserPermissions_UserId" Target="AspNetUsers_Id" Label="FK_UserPermissions_1_0" Category="Foreign Key" />
+  </Links>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

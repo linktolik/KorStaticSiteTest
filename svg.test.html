@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лінія-точка з гівном</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 95vw;
+            height: 90vh;
+            max-width: 1200px;
+            max-height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 1.5rem;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        
+        svg {
+            width: 80%;
+            height: 80%;
+            touch-action: none;
+            cursor: grab;
+        }
+
+        svg:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <svg id="scalableSvg" viewBox="0 0 100 100">
+        <!-- 
+            Секція <defs> для визначення пересвикористовуваних елементів.
+            Тут ми визначаємо лише маркер у формі гівна.
+        -->
+        <defs>
+            <!-- Маркер для гівна -->
+            <marker id="poopMarker"
+                    viewBox="0 0 100 100" 
+                    refX="50" refY="50" 
+                    markerWidth="25" markerHeight="25"
+                    orient="auto">
+                <!-- Шлях для гівна -->
+                <path d="M 50 0 C 70 10, 80 40, 80 50 C 80 60, 70 70, 50 70 C 30 70, 20 60, 20 50 C 20 40, 30 10, 50 0 Z"
+                      fill="#8B4513" stroke="#5C3317" stroke-width="5"/>
+                <!-- Підпис "гівно" -->
+                <text x="50" y="90" font-size="20" text-anchor="middle" fill="#5C3317">гівно</text>
+            </marker>
+        </defs>
+
+        <!-- 
+            Група, яка буде масштабуватися та переміщуватися.
+            Це дозволяє `vector-effect="non-scaling-stroke"` працювати правильно.
+        -->
+        <g id="panZoomGroup">
+            <!-- 
+                Елемент <line> з маркером на кінці.
+                `vector-effect="non-scaling-stroke"` тепер працює, бо ми застосовуємо
+                трансформацію до групи, а не до всього SVG.
+                Лінія зроблена невидимою, а координати початку і кінця збігаються,
+                щоб створити одну "точку".
+            -->
+            <line x1="50" y1="50" x2="50" y2="50" 
+                  stroke="none" 
+                  stroke-width="2" 
+                  vector-effect="non-scaling-stroke"
+                  marker-end="url(#poopMarker)" />
+
+            <!-- Додані об'єкти для масштабування -->
+            <circle cx="20" cy="20" r="5" fill="#38a169" />
+            <circle cx="80" cy="80" r="8" fill="#e53e3e" />
+            <rect x="15" y="70" width="10" height="10" fill="#3182ce" />
+        </g>
+    </svg>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const svg = document.getElementById('scalableSvg');
+        const panZoomGroup = document.getElementById('panZoomGroup');
+        
+        let scale = 1;
+        let isPanning = false;
+        let startPoint = { x: 0, y: 0 };
+        let pan = { x: 0, y: 0 };
+
+        /**
+         * Обробник події колеса миші (масштабування).
+         */
+        const handleWheel = (e) => {
+            e.preventDefault();
+            const zoomAmount = e.deltaY > 0 ? 0.9 : 1.1;
+            const newScale = scale * zoomAmount;
+
+            if (newScale < 0.1 || newScale > 10) return;
+            
+            // Отримуємо позицію курсора відносно SVG
+            const svgRect = svg.getBoundingClientRect();
+            const mouseX = e.clientX - svgRect.left;
+            const mouseY = e.clientY - svgRect.top;
+
+            // Компенсуємо масштабування
+            pan.x = mouseX - (mouseX - pan.x) * newScale / scale;
+            pan.y = mouseY - (mouseY - pan.y) * newScale / scale;
+            
+            scale = newScale;
+            panZoomGroup.setAttribute('transform', `translate(${pan.x}, ${pan.y}) scale(${scale})`);
+        };
+
+        /**
+         * Обробник події натискання миші (початок перетягування).
+         */
+        const handleMouseDown = (e) => {
+            isPanning = true;
+            svg.style.cursor = 'grabbing';
+            startPoint = { x: e.clientX, y: e.clientY };
+        };
+
+        /**
+         * Обробник події руху миші (під час перетягування).
+         */
+        const handleMouseMove = (e) => {
+            if (!isPanning) return;
+            const dx = e.clientX - startPoint.x;
+            const dy = e.clientY - startPoint.y;
+
+            pan.x += dx;
+            pan.y += dy;
+            
+            startPoint = { x: e.clientX, y: e.clientY };
+            panZoomGroup.setAttribute('transform', `translate(${pan.x}, ${pan.y}) scale(${scale})`);
+        };
+
+        /**
+         * Обробник події відпускання миші (кінець перетягування).
+         */
+        const handleMouseUp = () => {
+            isPanning = false;
+            svg.style.cursor = 'grab';
+        };
+
+        // Додаємо обробники подій
+        svg.addEventListener('wheel', handleWheel);
+        svg.addEventListener('mousedown', handleMouseDown);
+        svg.addEventListener('mousemove', handleMouseMove);
+        svg.addEventListener('mouseup', handleMouseUp);
+        svg.addEventListener('mouseleave', handleMouseUp);
+        
+        // Ініціалізуємо початковий стан
+        panZoomGroup.setAttribute('transform', `translate(${pan.x}, ${pan.y}) scale(${scale})`);
+    });
+</script>
+
+</body>
+</html>
