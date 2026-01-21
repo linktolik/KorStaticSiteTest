@@ -78,17 +78,26 @@
       <label for="Pain">Тригер чи умови поточного стану, емоції, почуття:</label>
       <input type="text" name="Trigger" id="Trigger" placeholder="Опиши тригер чи умови..." >
 
-      <label for="BrainBusy">Чим зайнятий мозок?</label>
-      <select id="BrainBusy" multiple onchange="if(this.value==='custom'){customInput.style.display='block'}else{customInput.style.display='none'}">
-        <option>Потік — повне злиття з процесом, мислення чітке й беззусильне</option>
-        <option>Спринт — мислення швидке й ясне</option>
-        <option>Стійкість — впевнено тримаю фокус волею, мислення стабільне, потребує контролю</option>
-        <option>Рівний ритм — звична робота без особливих осяянь; увага тримається легко й довго</option>
-        <option value="custom">Інше (ввести свій варіант)</option>
-      </select>
-      
-      <input id="customInput" style="display:none" placeholder="Введіть свій варіант">
-      
+      <!-- <label for="BrainBusy">Тригер чи умови поточного стану, емоції, почуття:</label> -->
+      <input 
+      type="search" 
+      id="BrainBusy" 
+      list="BrainBusy-datalist" 
+      placeholder="Чим зайнятий мозок? (Домінуючий процес)  "
+      class="w-full p-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+  >
+  <datalist id="BrainBusy-datalist">
+    <option>Конструктивний аналіз, вирішення проблем і задач</option>
+    <option>Планування, проектування, формування стратегій</option>
+    <option>Навчання, засвоєння</option>
+    <option>Внутрішня боротьба</option>
+    <option>Диванна філософія</option>
+    <option>Фантазії, мрійництво</option>
+    <option>Уявні діалоги, суперечки</option>
+    <option>Румінація, пережовування</option>
+    <option>Тривожне прогнозування, прокручування</option>
+    <option>Відпочинок, медитація, споглядання</option>
+    <option>Хаотичні думки без цілі</option>
   </datalist>
 
       <label for="Notes">Особливі спостереження, примітки, інсайти:</label>
