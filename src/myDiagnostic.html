@@ -75,16 +75,13 @@
         <option value="9">Вільне споглядання — відпочинок, дії без потреби в концентрації</option>              
       </select>
 
-      <label for="Pain">Тригер чи умови поточного стану, емоції, почуття:</label>
-      <input type="text" name="Trigger" id="Trigger" placeholder="Опиши тригер чи умови..." >
+      <input type="text" name="Trigger" id="Trigger" placeholder="умови поточного стану, емоції, почуття" >
 
-      <!-- <label for="BrainBusy">Тригер чи умови поточного стану, емоції, почуття:</label> -->
-      <input 
+  <input 
       type="search" 
       id="BrainBusy" 
       list="BrainBusy-datalist" 
-      placeholder="Чим зайнятий мозок? (Домінуючий процес)  "
-      class="w-full p-3 bg-slate-800 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+      placeholder="Чим зайнятий мозок? (Домінуючий процес) "     
   >
   <datalist id="BrainBusy-datalist">
     <option>Конструктивний аналіз, вирішення проблем і задач</option>
@@ -100,11 +97,24 @@
     <option>Хаотичні думки без цілі</option>
   </datalist>
 
-      <label for="Notes">Особливі спостереження, примітки, інсайти:</label>
-      <input type="text" name="Notes" id="Trigger"  >
+<input 
+  type="search" 
+  id="PhysicalActivity" 
+  list="PhysicalActivity-datalist" 
+  placeholder="Фізична зайнятість"  
+>
+<datalist id="PhysicalActivity-datalist">
+<option>Робота або навчання</option>
+<option>Спорт, фізична активність</option>
+<option>Прогулянка, транспорт</option>
+<option>Побут, рутина, їжа</option>
+<option>Спілкування</option>
+<option>Розваги, споживання контенту</option>
+</datalist>
+
+     
+      <input type="text" name="Notes" id="Trigger" placeholder="Інші спостереження, примітки, інсайти" >
       
-
-
         <fieldset style="display: flex; flex-direction: column;">       
 
         <div class="input-group">
@@ -153,7 +163,17 @@
 
     </fieldset>
 
+     <fieldset>
+      <legend>Вісь Dominance (Реальний контроль)</legend>
+      <div class="input-group">
+        <label for="Control" title="господар цього моменту» vs «жертва обставин/стану">Домінуючий — Підкорений 
+           <span id="control-value">0</span></label>
+        <input name="Control" type="range" min="-2" max="2" step="1" value="0" id="control-slider" oninput=sliderChange(event)>
+        
        
+        </div>
+    </div>     
+     </fieldset>
 
     </form>
 
