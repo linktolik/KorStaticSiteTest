@@ -392,8 +392,8 @@ function sliderChange(e){
     let valLabel = document.getElementById(idPrefix + '-value');
     console.log(valLabel);
     
-    // let bodyDesc = document.getElementById(idPrefix + '-desc').querySelector('#body-desc'); 
-    // let psycheDesc = document.getElementById(idPrefix + '-desc').querySelector('#psyche-desc');
+    let bodyDesc = document.getElementById(idPrefix + '-desc').querySelector('#body-desc'); 
+    let psycheDesc = document.getElementById(idPrefix + '-desc').querySelector('#psyche-desc');
 
     valLabel.innerHTML =  val;
     let data;
@@ -404,8 +404,8 @@ function sliderChange(e){
     } else if(idPrefix === 'control'){
         data = ControlData; 
     }
-    // bodyDesc.innerHTML = data[val].body;
-    // psycheDesc.innerHTML = data[val].psyche;
+    bodyDesc.innerHTML = data[val].body;
+    psycheDesc.innerHTML = data[val].psyche;
 
 }
 
